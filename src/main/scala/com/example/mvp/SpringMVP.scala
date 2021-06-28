@@ -9,15 +9,17 @@ import org.springframework.boot.builder.SpringApplicationBuilder
 
 @SpringBootApplication
 @RestController
-class SpringMVP extends SpringBootServletInitializer:
-
+class SpringMVP extends SpringBootServletInitializer {
+  
   override def configure(app: SpringApplicationBuilder): SpringApplicationBuilder =
     app.sources(classOf[SpringMVP])
 
   @GetMapping
-  def userName: String = "Gus"
+  def users: Seq[String] = Seq("Hello", "World")
 
-object SpringMVP:
+}
 
-  @main def main(args: String*): Unit =
-    SpringApplication.run(classOf[SpringMVP], args: _*)
+object SpringMVP {
+    def main(args: String*): Unit =
+      SpringApplication.run(classOf[SpringMVP], args: _*)
+}
